@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("https://angular-clients-of-the-bank.herokuapp.com/")
 @RestController
 public class DepositController {
     private DepositRepository depositRepository;
