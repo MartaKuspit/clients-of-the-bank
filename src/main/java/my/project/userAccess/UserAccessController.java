@@ -15,11 +15,11 @@ import java.util.List;
 @RestController
 public class UserAccessController {
     private UserRepository userRepository;
-    private PasswordEncoder passwordEncoder;
+  private PasswordEncoder passwordEncoder;
 
     public UserAccessController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
+       this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("user/user-list")
