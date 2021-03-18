@@ -11,7 +11,7 @@ import javax.annotation.PostConstruct;
 import java.security.Principal;
 import java.util.List;
 
-@CrossOrigin("https://angular-clients-of-the-bank.herokuapp.com/")
+@CrossOrigin("https://localhost:4200/")
 @RestController
 public class UserAccessController {
     private UserRepository userRepository;
