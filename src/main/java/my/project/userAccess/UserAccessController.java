@@ -32,16 +32,16 @@ public class UserAccessController {
         return userRepository.findById(id).get();
     }
 
-    @PostMapping("/login")
-    public User login() {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        String username = authentication.getName();
-        String role = authentication.getAuthorities()
-                .stream().findFirst().get()
-                .getAuthority();
-        return new User(username, role);
-    }
+//    @PostMapping("/login")
+//    public User login() {
+//        SecurityContext securityContext = SecurityContextHolder.getContext();
+//        Authentication authentication = securityContext.getAuthentication();
+//        String username = authentication.getName();
+//        String role = authentication.getAuthorities()
+//                .stream().findFirst().get()
+//                .getAuthority();
+//        return new User(username, role);
+//    }
 
     @PostMapping("user/add-new-user")
     public User addNewUser(@Validated @RequestBody User user) {
@@ -53,7 +53,7 @@ public class UserAccessController {
 //                passwordEncoder.encode(user.getPassword()),
 //                user.getRole()
 //        );
-//
+
 //        User user1 = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()),
 //                user.getRole().toUpperCase());
         String role = user.getRole().toUpperCase();
