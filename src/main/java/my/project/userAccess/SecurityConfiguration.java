@@ -12,12 +12,12 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 //@EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-    private UserService userService;
-
-    public SecurityConfiguration(UserService userService) {
-        this.userService = userService;
-    }
+//public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+//    private UserService userService;
+//
+//    public SecurityConfiguration(UserService userService) {
+//        this.userService = userService;
+//    }
 //        @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http
@@ -40,9 +40,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //        auth.userDetailsService(userService);
 //
 //    }
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        //return  NoOpPasswordEncoder.getInstance();
-        return new BCryptPasswordEncoder();
-    }
-}
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        //return  NoOpPasswordEncoder.getInstance();
+//        return new BCryptPasswordEncoder();
+//    }
+//}

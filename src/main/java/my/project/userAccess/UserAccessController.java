@@ -1,8 +1,10 @@
 package my.project.userAccess;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -66,6 +68,11 @@ public class UserAccessController {
     @DeleteMapping("delete-user/{id}")
     public void deleteUser(@PathVariable long id) {
         userRepository.deleteById(id);
+    }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        //return  NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
     }
 }
 
