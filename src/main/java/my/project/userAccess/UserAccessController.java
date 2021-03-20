@@ -19,7 +19,7 @@ public class UserAccessController {
 
     public UserAccessController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-       this.passwordEncoder = passwordEncoder;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping("user/user-list")
@@ -32,16 +32,16 @@ public class UserAccessController {
         return userRepository.findById(id).get();
     }
 
-    @PostMapping("/login")
-    public User login() {
-        SecurityContext securityContext = SecurityContextHolder.getContext();
-        Authentication authentication = securityContext.getAuthentication();
-        String username = authentication.getName();
-        String role = authentication.getAuthorities()
-                .stream().findFirst().get()
-                .getAuthority();
-        return new User(username, role);
-    }
+//    @PostMapping("/login")
+//    public User login() {
+//        SecurityContext securityContext = SecurityContextHolder.getContext();
+//        Authentication authentication = securityContext.getAuthentication();
+//        String username = authentication.getName();
+//        String role = authentication.getAuthorities()
+//                .stream().findFirst().get()
+//                .getAuthority();
+//        return new User(username, role);
+//    }
 
     @PostMapping("user/add-new-user")
     public User addNewUser(@Validated @RequestBody User user) {
