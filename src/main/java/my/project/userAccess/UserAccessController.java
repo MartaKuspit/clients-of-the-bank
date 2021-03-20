@@ -69,7 +69,7 @@ public class UserAccessController {
     public void deleteUser(@PathVariable long id) {
         userRepository.deleteById(id);
     }
-    @Bean
+
     public PasswordEncoder passwordEncoder() {
         //return  NoOpPasswordEncoder.getInstance();
         return new BCryptPasswordEncoder();
