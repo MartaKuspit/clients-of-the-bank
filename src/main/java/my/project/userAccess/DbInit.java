@@ -17,16 +17,16 @@ public class DbInit {
         this.passwordEncoder = passwordEncoder;
     }
 
-//    @PostConstruct
-//    public void onInit() {
-//
-//        User user1 = new User(
-//                "admin1",
-//                passwordEncoder.encode("admin"),
-//                "ADMIN"
-//        );
-//        userRepository.save(user1);
-//    }
+    @PostConstruct
+    public void onInit() {
+
+        User user1 = new User(
+                "admin1",
+                passwordEncoder.encode("admin"),
+                "ADMIN"
+        );
+        userRepository.save(user1);
+    }
 
 }
 
