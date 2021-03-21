@@ -47,21 +47,21 @@ public class UserAccessController {
 
     @PostMapping("user/add-new-user")
     public User addNewUser(@Validated @RequestBody User user) {
-        String pass = passwordEncoder.encode(user.getPassword());
+     //   String pass = passwordEncoder.encode(user.getPassword()); //to zakomentowałam
 
-        user.setPassword(pass);
+      //  user.setPassword(pass); to zmieniam
 //        User user1 = new User(
 //                user.getUsername(),
 //                passwordEncoder.encode(user.getPassword()),
 //                user.getRole()
 //        );
 
-//        User user1 = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()),
-//                user.getRole().toUpperCase());
-        String role = user.getRole().toUpperCase();
-        user.setRole(role);
+        User user1 = new User(user.getUsername(), passwordEncoder.encode(user.getPassword()),
+                user.getRole().toUpperCase()); // to odkomentowałam
+//        String role = user.getRole().toUpperCase(); // to zmieniam
+//        user.setRole(role); // to zmieniam
 //        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        return userRepository.save(user1); // tu dodalam1
 
     }
 
