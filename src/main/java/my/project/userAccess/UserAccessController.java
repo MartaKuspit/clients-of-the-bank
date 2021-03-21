@@ -34,7 +34,7 @@ public class UserAccessController {
         return userRepository.findById(id).get();
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public User login() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
