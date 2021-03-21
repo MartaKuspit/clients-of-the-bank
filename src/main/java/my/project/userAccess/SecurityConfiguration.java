@@ -35,14 +35,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userService);
-//
-//    }
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        //return  NoOpPasswordEncoder.getInstance();
-//        return new BCryptPasswordEncoder();
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService);
+
+    }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        //return  NoOpPasswordEncoder.getInstance();
+        return new BCryptPasswordEncoder();
+    }
 }
