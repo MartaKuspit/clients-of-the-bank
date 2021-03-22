@@ -18,28 +18,28 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public SecurityConfiguration(UserService userService) {
         this.userService = userService;
     }
-        @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .cors()
-                .and()
-                .csrf()
-                .disable()
-                .httpBasic()
-                .and()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userService);
-
-    }
+//        @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http
+//                .cors()
+//                .and()
+//                .csrf()
+//                .disable()
+//                .httpBasic()
+//                .and()
+//                .authorizeRequests()
+//                .anyRequest()
+//                .authenticated()
+//                .and()
+//                .sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//    }
+//
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.userDetailsService(userService);
+//
+//    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         //return  NoOpPasswordEncoder.getInstance();
