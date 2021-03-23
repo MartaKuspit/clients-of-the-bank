@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("https://angular-clients-of-the-bank.herokuapp.com")
+@CrossOrigin("https://localhost:4200/")
 @RestController
 @RequestMapping("client")
 public class ClientController {
