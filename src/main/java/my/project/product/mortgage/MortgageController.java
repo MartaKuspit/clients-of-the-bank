@@ -2,14 +2,12 @@ package my.project.product.mortgage;
 
 import my.project.client.Client;
 import my.project.client.ClientRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import my.project.product.loan.Loan;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("https://localhost:4200/")
+@CrossOrigin("http://localhost:4200")
 @RestController
 public class MortgageController {
     private MortgageRepository mortgageRepository;
@@ -24,5 +22,12 @@ public class MortgageController {
     public List<Mortgage> getAllForClient (@PathVariable long clientId){
         Client client = clientRepository.findById(clientId).get();
         return client.getMortgages();
+    }
+    @PostMapping("mortgage/new-mortgage/{clientId}")
+    public void addNewAccount(@RequestBody Mortgage mortgage, @PathVariable long clientId){
+        mortgageRepository.save(mortgage);
+        Client client = clientRepository.findById(clientId).get();
+        client.getMortgages().add(mortgage);
+        clientRepository.save(client);
     }
 }

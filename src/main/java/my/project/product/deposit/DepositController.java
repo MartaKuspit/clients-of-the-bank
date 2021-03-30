@@ -2,14 +2,12 @@ package my.project.product.deposit;
 
 import my.project.client.Client;
 import my.project.client.ClientRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import my.project.product.account.Account;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("https://localhost:4200/")
+@CrossOrigin("http://localhost:4200")
 @RestController
 public class DepositController {
     private DepositRepository depositRepository;
@@ -23,5 +21,12 @@ public class DepositController {
     public List<Deposit> getAllforClient (@PathVariable long clientId){
         Client client = clientRepository.findById(clientId).get();
         return client.getDeposits();
+    }
+    @PostMapping("deposit/new-deposit/{clientId}")
+    public void addNewAccount(@RequestBody Deposit deposit, @PathVariable long clientId){
+        depositRepository.save(deposit);
+        Client client = clientRepository.findById(clientId).get();
+        client.getDeposits().add(deposit);
+        clientRepository.save(client);
     }
 }

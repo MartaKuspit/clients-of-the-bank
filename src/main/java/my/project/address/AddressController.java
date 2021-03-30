@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin("https://localhost:4200/")
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("address")
 public class AddressController {

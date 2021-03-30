@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 import java.security.Principal;
 import java.util.List;
 
-@CrossOrigin("https://localhost:4200/")
+@CrossOrigin("http://localhost:4200")
 @RestController
 public class UserAccessController {
     private UserRepository userRepository;
@@ -34,7 +34,7 @@ public class UserAccessController {
         return userRepository.findById(id).get();
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public User login() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();

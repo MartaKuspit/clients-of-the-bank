@@ -38,6 +38,15 @@ public class Client {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Mortgage> mortgages;
 
+    public Client() {
+    }
+
+    public Client(@NotNull @NotEmpty String firstName, @NotNull @NotEmpty String lastName, @Pattern(regexp = "^[0-9]{11}$", message = "pesel musi składać sie z 11 cyfr") @NotEmpty @ClientPeselValidator String pesel, List<Account> accounts) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.pesel = pesel;
+        this.accounts = accounts;
+    }
 
     public List<Deposit> getDeposits() {
         return deposits;
