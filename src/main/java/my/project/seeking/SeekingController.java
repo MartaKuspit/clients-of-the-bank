@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@CrossOrigin("https://localhost:4200/")
+@CrossOrigin("http://localhost:4200")
 @RestController
 public class SeekingController {
 
