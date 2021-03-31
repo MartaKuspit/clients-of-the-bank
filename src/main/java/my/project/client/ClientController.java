@@ -45,12 +45,12 @@ public class ClientController {
     @PutMapping("/edit-client/{id}")
     public void edit(@RequestBody Client client, @PathVariable long id) {
 
-        Client oldclient = clientRepository.findById(id).get();
-        oldclient.setId(oldclient.getId());
-        oldclient.setFirstName(client.getFirstName());
-        oldclient.setLastName(client.getLastName());
-        oldclient.setPesel(client.getPesel());
-        clientRepository.save(oldclient);
+//        Client oldclient = clientRepository.findById(id).get();
+//        oldclient.setId(oldclient.getId());
+//        oldclient.setFirstName(client.getFirstName());
+//        oldclient.setLastName(client.getLastName());
+//        oldclient.setPesel(client.getPesel());
+        clientRepository.save(client);
     }
 
 
