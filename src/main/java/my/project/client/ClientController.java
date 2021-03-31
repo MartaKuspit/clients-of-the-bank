@@ -42,10 +42,10 @@ public class ClientController {
         clientRepository.deleteById(id);
     }
 
-    @PutMapping("/edit-client/{id}")
-    public void edit(@Validated @RequestBody Client client, @PathVariable long id) {
+    @PutMapping("/edit-client/{clientId}")
+    public void edit(@Validated @RequestBody Client client, @PathVariable long clientId) {
 
-        Client oldclient = clientRepository.findById(id).get();
+        Client oldclient = clientRepository.findById(clientId).get();
         oldclient.setId(oldclient.getId());
         oldclient.setFirstName(client.getFirstName());
         oldclient.setLastName(client.getLastName());
