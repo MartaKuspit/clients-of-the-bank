@@ -31,7 +31,7 @@ public class SeekingController {
                 List<Client> clientListWithDeposits = clientList.stream()
                         .filter(client -> client.getDeposits().size() != 0).collect(Collectors.toList());
                 return clientListWithDeposits;
-            } else if (seekword.contains("poz") || seekword.contains("poż") || seekword.contains("kre")) {
+            } else if (seekword.startsWith("poz") || seekword.contains("poż") || seekword.contains("kre")) {
                 List<Client> clientListWithLoans = clientList.stream()
                         .filter(client -> client.getLoans().size() != 0)
                         .collect(Collectors.toList());
