@@ -43,7 +43,7 @@ public class ClientController {
     }
 
     @PutMapping("/edit-client/{clientId}")
-    public void edit(@Validated @RequestBody Client client, @PathVariable long clientId) {
+    public void edit(@Validated @RequestBody Client client) {
         clientRepository.save(client);
     }
 

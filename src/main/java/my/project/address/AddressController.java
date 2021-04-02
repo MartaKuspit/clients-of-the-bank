@@ -42,7 +42,7 @@ public class AddressController {
 
 
     @PutMapping("addressToChange/{id}")
-    public void edit(@Validated @RequestBody Address address, @PathVariable long id) {
+    public void edit(@Validated @RequestBody Address address) {
         addressRepository.save(address);
     }
 
